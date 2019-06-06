@@ -1,4 +1,4 @@
 # Wireframes
 
-![](DAL_Wireframe.png)
+![](AL_Wireframe.png)
 

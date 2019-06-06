@@ -12,7 +12,7 @@ as the basis for the data in which the applications alogrithms will generate.
 
 The generated pieces of music, will be exprotable as a midi file, so that if they are to 
 be found interesting by the user they can then export the file and be able to use it in 
-any midi compatible (which only very few things are not midi compatible) software or 
+any midi compatible (which only very few things are not midi compatible) piece of software or 
 hardware.  
 
 The User will be able to search for new keywords at any time, and be able to store keywords 
