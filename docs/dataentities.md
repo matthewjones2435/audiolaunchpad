@@ -9,9 +9,11 @@ information that I could use for gathering genetic sequences.
 
 Keys 
 Id: long
-Scale Name: String
-Modes : Enum
-Scale Formula : Enum of scale formulas
+Scale Formula: int Array
+Notes in scale: String
+Mode Name: String
+Mode Formula: int Array
+
 
 Ensembl ID: String 
 
