@@ -19,3 +19,6 @@ Ensembl ID: String
 
 Not sure how these could work or would work at this point.
 
+Not sure about my ERD as well 
+
+![](ERD.png)
