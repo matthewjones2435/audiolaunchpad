@@ -1,6 +1,7 @@
 <resources>
   <string name="app_name">Audio Launchpad</string>
-  <string name="title_home">Home</string>
-  <string name="title_dashboard">Dashboard</string>
-  <string name="title_notifications">Notifications</string>
+  <string name="title_generate_view">Generate</string>
+  <string name="title_locker_view">Locker Room</string>
+  <string name="title_results">Results</string>
+  <string name="title_homepage">Home</string>
 </resources>
