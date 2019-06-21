@@ -7,39 +7,40 @@ import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 
-@Entity (primaryKeys = {"keyword" },
-                        indices = {@Index("user_input_one"), @Index("user_index_two")},
-                        foreignKeys = {
-                        @ForeignKey(entity = Keyword.class,
-                            parentColumns =  "keyword_one",
-                              childColumns =  "keyword_id")
+@Entity (foreignKeys = {
+        @ForeignKey(entity = Keyword.class,
+            parentColumns =  "keyword_id",
+              childColumns =  "keywords")
 })
 
 
 public class Output {
 
-
+  @PrimaryKey (autoGenerate = true)
   @ColumnInfo(name = "output_id", index = true)
-  private long outputId;
+  private long id;
+  @ColumnInfo(name = "keywords",index = true)
+  private long keywords;
   @ColumnInfo (name = "time_stamp")
   private long timeStamp;
+  private String haiku;
   @ColumnInfo(name="file_name", index = true)
   private String fileName;
 
-  public long getOutputId() {
-    return outputId;
+  public long getId() {
+    return id;
   }
 
-  public void setOutputId(long outputId) {
-    this.outputId = outputId;
+  public void setId(long id) {
+    this.id = id;
   }
 
-  public String getFileName() {
-    return fileName;
+  public long getKeywords() {
+    return keywords;
   }
 
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
+  public void setKeywords(long keywords) {
+    this.keywords = keywords;
   }
 
   public long getTimeStamp() {
@@ -48,5 +49,21 @@ public class Output {
 
   public void setTimeStamp(long timeStamp) {
     this.timeStamp = timeStamp;
+  }
+
+  public String getHaiku() {
+    return haiku;
+  }
+
+  public void setHaiku(String haiku) {
+    this.haiku = haiku;
+  }
+
+  public String getFileName() {
+    return fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
   }
 }
