@@ -10,20 +10,16 @@ import androidx.room.PrimaryKey;
 @Entity (foreignKeys = {
         @ForeignKey(entity = Keyword.class,
             parentColumns =  "keyword_id",
-              childColumns =  "keywords")
+              childColumns =  "output_id")
 })
-
 
 public class Output {
 
   @PrimaryKey (autoGenerate = true)
   @ColumnInfo(name = "output_id", index = true)
   private long id;
-  @ColumnInfo(name = "keywords",index = true)
-  private long keywords;
   @ColumnInfo (name = "time_stamp")
   private long timeStamp;
-  private String haiku;
   @ColumnInfo(name="file_name", index = true)
   private String fileName;
 
@@ -35,28 +31,12 @@ public class Output {
     this.id = id;
   }
 
-  public long getKeywords() {
-    return keywords;
-  }
-
-  public void setKeywords(long keywords) {
-    this.keywords = keywords;
-  }
-
   public long getTimeStamp() {
     return timeStamp;
   }
 
   public void setTimeStamp(long timeStamp) {
     this.timeStamp = timeStamp;
-  }
-
-  public String getHaiku() {
-    return haiku;
-  }
-
-  public void setHaiku(String haiku) {
-    this.haiku = haiku;
   }
 
   public String getFileName() {
@@ -66,4 +46,5 @@ public class Output {
   public void setFileName(String fileName) {
     this.fileName = fileName;
   }
+
 }

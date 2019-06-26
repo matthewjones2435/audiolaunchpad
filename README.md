@@ -1,49 +1,42 @@
-# Digital Audio Launchpad
+# Haiku[GA]
 
 
 * [User stories](docs/user-stories.md)
 * [Wireframes](docs/wireframes.md)
 
-Digital Audio Launchpad is a generative music tool, aimed to produce beats, loops, and aural
-drones based upon data mined from genetic sequencing data.  The application will allow the to search
-common names of  vertebrate animals , use the search to return the genetic sequence of the of the query.
-Once the sequence has been found the string information will then be used 
-as the basis for the data in which the application's algorithms construct its 
-finished product.  
+Haiku [GA] is a generative music tool, aimed to produce procedurally generated music using text
+as a seed.  The application will allow the user to enter zero to two keywords and build
+a nonsensicle haiku, using the user input the random word function from the Words API.  Once the haiku
+ has been built it will be displayed  and analyzed, the data extracted from the haiku will serve as the seed for the generated music.
 
 The generated pieces of music, will be exprotable as a midi file, so that if they are to 
-be found interesting by the user they can then export the file and be able to use it in 
-any midi compatible (which only very few things are not midi compatible) piece of software or 
-hardware.  
-
-The User will be able to perform a new search at any time by navigating to the correct activity,and 
-be able to store preferred searches if they have found that the generative results from particular 
-searches have been interesting to them.  The user will also have a storage locker of 
-beats, loops, or drones, this storage locker can be used to save the tagged material that the 
-user has generated.
+be found interesting by the user they can then export the file and be able to use/edit it in 
+any midi compatible piece of software or hardware.  
 
 ## Possible Users 
-* The aim of the application is to serve as a spring board for musicians whom have hit creative 
+* The aim of the application is to serve as an inspirational spring board for musicians whom have hit creative 
 writers block.  
-* Casual users who would like to have fun with an application that can produce unique results from 
-basic searches 
+* Casual users who would like to have fun with an application that can produce unique results from simple
+user input. 
 
 ## Data for Consumption
 The planned external service to obtain the genetic sequencing data for the application
-to use as a basis for its generative nature will the Ensembl api.  
+to use as a basis for its generative nature will the Words API.  
 
 ## Navigtion Method 
 
-The navigation method I would like to use for this application would be a bottom button navigation.
-I believe it will add an element of ease of use for the application.  
+The navigation method I would like to use for this application would be a bottom button navigation
 
 #### Activity Elements
 
-* Search activity  
-     * Where user can input searches, save past searches to generate new material from
-* Generate activity 
-     * User will be able to define some basic elements of the end generative result such as 
-      type of musical material, beat/bar length, number of variations that will be produced.
+* Keyword activity  
+     * Where user can input keywords, and produce a random and nonsensical hiaku, the activity 
+      will also store entered keywords into a database, so that users can reuse the keywords they have 
+      entered in new combonations.  
+* Haiku activity 
+     * This will be where the generated haiku will be displayed, and also this is where the generated music 
+     will take place.  There will be a save haiku option on this page that will create a file, and send 
+     the 
 * Results activity 
      * This will display the results of the application and variations of the materail that was computed 
      here the user will be able to play the results, export as midi for futher experimentation, and 

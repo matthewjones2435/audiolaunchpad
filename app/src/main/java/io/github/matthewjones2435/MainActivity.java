@@ -1,47 +1,62 @@
 package io.github.matthewjones2435;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.fragment.app.Fragment;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-  private TextView mTextMessage;
+  private ActionBar toolbar;
+
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    toolbar = getSupportActionBar();
+    toolbar.setTitle("Haiku[GA]   Enter Keywords");
+    loadFragment(new KeywordFragment());
+
+    BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+    navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+  }
 
   private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
       = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+      Fragment fragment;
       switch (item.getItemId()) {
-        case R.id.generate:
-          mTextMessage.setText(R.string.title_generate_view);
+        case R.id.fragment_keyword:
+          toolbar.setTitle("Haiku[GA]   Enter Keywords");
+          fragment = new KeywordFragment();
+          loadFragment (fragment);
           return true;
-        case R.id.storage_locker:
-          mTextMessage.setText(R.string.title_locker_view);
+        case R.id.fragment_haiku:
+          toolbar.setTitle("Haiku[GA]   Your Haiku");
+          fragment = new HaikuFragment();
+          loadFragment(fragment);
           return true;
         case R.id.results:
-          mTextMessage.setText(R.string.title_results);
+          // mTextMessage.setText(R.string.title_results);
           return true;
-        case R.id.title_homepage:
-          mTextMessage.setText(R.string.title_homepage);
-          return true;
+        
       }
       return false;
     }
   };
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-
-    mTextMessage = (TextView) findViewById(R.id.message);
-    BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-    navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+  private void loadFragment(Fragment fragment){
+    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+    transaction.replace(R.id.container, fragment);
+    transaction.addToBackStack(null);
+    transaction.commit();
   }
 
 }

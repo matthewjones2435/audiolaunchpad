@@ -2,23 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
   <item
-    android:id="@+id/generate"
+    android:id="@+id/fragment_keyword"
     android:icon="@drawable/ic_home_black_24dp"
-    android:title="@string/title_generate_view"/>
+    android:title="@string/title_keyword_view"/>
 
   <item
-    android:id="@+id/storage_locker"
+    android:id="@+id/fragment_haiku"
     android:icon="@drawable/ic_dashboard_black_24dp"
-    android:title="@string/title_locker_view"/>
+    android:title="@string/title_haiku_view"/>
 
   <item
     android:id="@+id/results"
     android:icon="@drawable/ic_notifications_black_24dp"
     android:title="@string/title_results"/>
-   <item
-     android:id="@+id/title_homepage"
-     android:title="@string/title_homepage"/>
-
-
 
 </menu>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/container"
+  android:background="@color/colorDark"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:visibility="visible"
+  android:layout_marginBottom="50dp"
+  tools:context=".MainActivity">
+
+  <FrameLayout
+    android:id="@+id/fragment_keyword"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:layout_editor_absoluteX="8dp"/>
+
+  <ListView
+    android:layout_width="wrap_content"
+    android:layout_height="0dp"
+    android:id="@+id/keyword_list"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginEnd="8dp"
+    app:layout_constraintBottom_toTopOf="@id/enter_keyword"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintTop_toTopOf="parent"
+    />
+
+
+
+  <EditText
+    android:id="@+id/enter_keyword"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:padding="20dp"
+    android:background="@drawable/button_one"
+    android:hint="@string/keyword_hint"
+    android:textColor="@color/textColor"
+    app:layout_constraintBottom_toTopOf="@id/haiku_build_button"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+
+
+  <Button
+    android:id="@+id/input_keyword"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:background="@drawable/button_one"
+    android:text="@string/add_keyword"
+    android:textColor="@color/textColor"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/enter_keyword"/>
+
+
+  <Button
+    android:id="@+id/haiku_build_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:padding="16dp"
+    android:paddingBottom="16dp"
+    android:background="@drawable/button_one"
+    android:text="@string/build_haiku"
+    android:textColor="@color/textColor"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toBottomOf="@+id/fragment_keyword"
+    app:layout_constraintLeft_toLeftOf="@id/fragment_keyword"
+    />
+
+  <Button
+    android:id="@+id/all_random_haiku"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:padding="16dp"
+    android:paddingBottom="16dp"
+    android:background="@drawable/button_one"
+    android:text="@string/all_random_haiku"
+    android:textColor="@color/textColor"
+    android:textSize="23sp"
+    app:layout_constraintBottom_toBottomOf="@+id/fragment_keyword"
+    app:layout_constraintRight_toRightOf="@id/fragment_keyword"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

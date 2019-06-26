@@ -1,7 +1,17 @@
 <resources>
-  <string name="app_name">Audio Launchpad</string>
-  <string name="title_generate_view">Generate</string>
-  <string name="title_locker_view">Locker Room</string>
+  <string name="app_name">Haiku[GA]</string>
+  <string name="title_keyword_view">Keywords</string>
+  <string name="title_haiku_view">Haiku</string>
   <string name="title_results">Results</string>
-  <string name="title_homepage">Home</string>
+  <string name="enter_keyword">Please enter a keyword (total of two)</string>
+  <string name="build_haiku">Build Haiku</string>
+  <string name="title_fragment_keyword">Enter Keywords</string>
+  <string name="title_home">Home</string>
+  <string name="title_dashboard">Dashboard</string>
+  <string name="title_notifications">Notifications</string>
+  <string name="keyword_hint">Enter up to two keywords</string>
+  <string name="hiaku_display">Haiku Displays Here</string>
+  <string name="add_keyword">Add Keyword</string>
+  <string name="all_random_haiku">ALL RANDOM</string>
+
 </resources>
