@@ -10,16 +10,20 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import io.github.matthewjones2435.model.Keyword;
 import io.github.matthewjones2435.viewmodel.KeywordViewModel;
-import java.security.Key;
 import java.util.List;
 
 public class KeywordFragment extends Fragment {
 
+  private int clickCount = 0;
+  private int listClickCount = 0;
   private Context context;
 
   public KeywordFragment() {
@@ -32,9 +36,10 @@ public class KeywordFragment extends Fragment {
     this.context = context;
   }
 
-
   @Override
-  public View onCreateView(LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState){
+  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+      Bundle savedInstanceState) {
+
 
     final View view = inflater.inflate(R.layout.fragment_keyword, container, false);
     final ListView keywordsList = view.findViewById(R.id.keyword_list);
@@ -44,25 +49,68 @@ public class KeywordFragment extends Fragment {
     viewModel.getKeywordsLiveData().observe(this, new Observer<List<Keyword>>() {
       @Override
       public void onChanged(List<Keyword> keywords) {
-        final ArrayAdapter<Keyword> adapter =  new ArrayAdapter<Keyword>(context,R.layout.list_white_text ,
+        final ArrayAdapter<Keyword> adapter = new ArrayAdapter<Keyword>(context,
+            R.layout.list_white_text,
             keywords);
+        keywordsList.setAdapter(adapter);
       }
     });
 
-
-   // Button goAllRandom = view.findViewById(R.id.go_all_random);
-    Button newHaiku = view.findViewById(R.id.haiku_build_button);
-    EditText enterKeyword = view.findViewById(R.id.enter_keyword);
-
+    final TextView keywordOne = view.findViewById(R.id.user_input_one);
+    final TextView keywordTwo = view.findViewById(R.id.user_input_two);
     final Button newKeyword = view.findViewById(R.id.input_keyword);
+    final EditText enterKeyword = view.findViewById(R.id.enter_keyword);
+
     newKeyword.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
-        EditText keywordEditText = view.findViewById(R.id.enter_keyword);
+        clickCount = clickCount + 1;
+        String inputOne = enterKeyword.getText().toString();
+        String inputTwo = enterKeyword.getText().toString();
         Keyword newKeyword = new Keyword();
-        newKeyword.setUserInput(keywordEditText.getText().toString());
+        newKeyword.setUserInput(enterKeyword.getText().toString());
         viewModel.addKeyword(newKeyword);
-        keywordEditText.setText("");
+        enterKeyword.setText("");
+        if (clickCount <= 1) {
+          keywordOne.setText(inputOne);
+          keywordOne.setVisibility(View.VISIBLE);
+          clickCount = clickCount + clickCount;
+        } else {
+          keywordTwo.setText(inputTwo);
+          keywordTwo.setVisibility(View.VISIBLE);
+          clickCount = 0;
+        }
+      }
+    });
+
+    final Button buildHaiku = view.findViewById(R.id.haiku_build_button);
+    buildHaiku.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Fragment fragment = new HaikuFragment();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+      }
+    });
+
+    final Button liveInThePast = view.findViewById(R.id.populate_list);
+    liveInThePast.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        listClickCount = listClickCount + 1;
+        if (listClickCount <= 1) {
+          keywordsList.setVisibility(View.VISIBLE);
+          listClickCount = listClickCount + 1;
+        } else {
+          keywordsList.setVisibility(View.INVISIBLE);
+          listClickCount = 0;
+
+          // TODO implement way to select values from list position to set the text views
+          // TODO change from keyword list view from list to Recycler view.
+        }
       }
     });
 

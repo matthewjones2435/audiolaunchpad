@@ -13,5 +13,7 @@
   <string name="hiaku_display">Haiku Displays Here</string>
   <string name="add_keyword">Add Keyword</string>
   <string name="all_random_haiku">ALL RANDOM</string>
+  <string name="ampersand"><![CDATA[&]]></string>
+  <string name="select_previous_keywords">Live in the Past</string>
 
 </resources>
