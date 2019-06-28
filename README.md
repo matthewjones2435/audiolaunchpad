@@ -4,6 +4,7 @@
 * [User stories](docs/user-stories.md)
 * [Wireframes](docs/wireframes.md)
 * [Data Entities](docs/haiku_ga_erd.png)
+* [Milestones](docs/milestones.md)
 
 Haiku [GA] is a generative music tool, aimed to produce procedurally generated music using text
 as a seed.  The application will allow the user to enter zero to two keywords and build
