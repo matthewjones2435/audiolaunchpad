@@ -3,6 +3,7 @@
 
 * [User stories](docs/user-stories.md)
 * [Wireframes](docs/wireframes.md)
+* [Data Entities](docs/haiku_ga_erd.png)
 
 Haiku [GA] is a generative music tool, aimed to produce procedurally generated music using text
 as a seed.  The application will allow the user to enter zero to two keywords and build
@@ -36,11 +37,7 @@ The navigation method I would like to use for this application would be a bottom
 * Haiku activity 
      * This will be where the generated haiku will be displayed, and also this is where the generated music 
      will take place.  There will be a save haiku option on this page that will create a file, and send 
-     the 
-* Results activity 
-     * This will display the results of the application and variations of the materail that was computed 
-     here the user will be able to play the results, export as midi for futher experimentation, and 
-     the user will be able to tag the results they would like to save for later.
+     for storage.
 * Storage Locker activity
      * Here will be the storage of the material that the user has tagged, they will also be able 
      to play, export on this activity as well, the user will also be able to remove the stored 
