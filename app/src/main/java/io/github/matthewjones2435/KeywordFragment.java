@@ -22,6 +22,7 @@ import java.util.List;
 
 public class KeywordFragment extends Fragment {
 
+  private String userText;
   private int clickCount = 0;
   private int listClickCount = 0;
   private Context context;
@@ -107,9 +108,6 @@ public class KeywordFragment extends Fragment {
         } else {
           keywordsList.setVisibility(View.INVISIBLE);
           listClickCount = 0;
-
-          // TODO implement way to select values from list position to set the text views
-          // TODO change from keyword list view from list to Recycler view.
         }
       }
     });

@@ -11,15 +11,5 @@ public class HaikuApplication extends Application {
   public void onCreate() {
     super.onCreate();
     Stetho.initializeWithDefaults(this);
-
-//    new Thread(() -> {
-//
-//      Keyword keyword = new Keyword();
-//
-//      keyword.setUserInput("Test Word");
-//
-//      HaikuDatabase.getInstance(this).getKeywordDao().insert(keyword);
-//
-//    }).start();
   }
 }

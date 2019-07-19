@@ -11,7 +11,7 @@ import java.util.List;
 public interface KeywordDao {
 
     @Insert
-    void insert (Keyword keyword);
+    long insert (Keyword keyword);
 
     @Query("SELECT * FROM keyword")
     LiveData<List<Keyword>> getAll();

@@ -1,17 +1,16 @@
 package io.github.matthewjones2435.model;
 
+import java.util.List;
+
 public class ApiWords {
 
-  private String randomWords;
+  private List<String> apiWords;
 
-
-  public String getRandomWords() {
-    return randomWords;
+  public List<String> getRandomWordsList() {
+    return apiWords;
   }
 
-  public void setRandomWords(String randomWords) {
-    this.randomWords = randomWords;
+  public void setRandomWordsList(List<String> apiWords) {
+    this.apiWords = apiWords;
   }
-
-  // TODO Override toString method possibly
 }
