@@ -14,7 +14,7 @@ public class KeywordDaoTest {
 
   @Before
   public void setup() throws Exception {
-    Context context =
+    Context context;
   }
 
 
