@@ -1,0 +1,124 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "0d12beb772a9659f0886bb1b54f7c5b8",
+    "entities": [
+      {
+        "tableName": "Keyword",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`keyword_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `user_input_keyword` TEXT, `haiku` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "keyword_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userInput",
+            "columnName": "user_input_keyword",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "haiku",
+            "columnName": "haiku",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "keyword_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Keyword_user_input_keyword",
+            "unique": false,
+            "columnNames": [
+              "user_input_keyword"
+            ],
+            "createSql": "CREATE  INDEX `index_Keyword_user_input_keyword` ON `${TABLE_NAME}` (`user_input_keyword`)"
+          },
+          {
+            "name": "index_Keyword_haiku",
+            "unique": false,
+            "columnNames": [
+              "haiku"
+            ],
+            "createSql": "CREATE  INDEX `index_Keyword_haiku` ON `${TABLE_NAME}` (`haiku`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Output",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`output_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `time_stamp` INTEGER NOT NULL, `file_name` TEXT, FOREIGN KEY(`output_id`) REFERENCES `Keyword`(`keyword_id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "output_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timeStamp",
+            "columnName": "time_stamp",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fileName",
+            "columnName": "file_name",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "output_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Output_output_id",
+            "unique": false,
+            "columnNames": [
+              "output_id"
+            ],
+            "createSql": "CREATE  INDEX `index_Output_output_id` ON `${TABLE_NAME}` (`output_id`)"
+          },
+          {
+            "name": "index_Output_file_name",
+            "unique": false,
+            "columnNames": [
+              "file_name"
+            ],
+            "createSql": "CREATE  INDEX `index_Output_file_name` ON `${TABLE_NAME}` (`file_name`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Keyword",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "output_id"
+            ],
+            "referencedColumns": [
+              "keyword_id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0d12beb772a9659f0886bb1b54f7c5b8')"
+    ]
+  }
+}
