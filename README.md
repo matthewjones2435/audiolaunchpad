@@ -5,6 +5,10 @@
 * [Wireframes](docs/wireframes.md)
 * [Data Entities](docs/haiku_ga_erd.png)
 * [Milestones](docs/milestones.md)
+* [License](LICENSE)
+
+** Current working state of application, is not working as intended, currently I am unable to call to and recieve a response from the API webservice, also many of the classes within the application are not working with data being passed to eachother and are built using very basic skeletal representations of the classes with "testing" variables being used.  
+
 
 Haiku [GA] is a generative music tool, aimed to produce procedurally generated music using text
 as a seed.  The application will allow the user to enter zero to two keywords and build
